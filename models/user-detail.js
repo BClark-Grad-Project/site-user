@@ -15,7 +15,6 @@ var UserDetailSchema = mongo.Schema({
 UserDetailSchema.methods.getData = function(){
 	return {
 		id: 	this._id,
-	    user:	this.user,
 	    contact:this.contact,
 	    first:  this.first,
 	    middle: this.middle,

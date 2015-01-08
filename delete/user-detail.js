@@ -1,23 +1,10 @@
-var UserDetail = require('./../models/user-detail');
+var detail = require('./../update/user-detail');
 
-module.exports.byId = function(id, cb){
-	UserDetail
-		.find()
-		.remove({_id: id})
-		.exec(function(err){
-			if(err){return cb(err, null);}
-			
-			cb(null, 'Deleted');
-		});
-};
-
-module.exports.byUser = function(user, cb){
-	UserDetail
-		.find()
-		.remove({user: user})
-		.exec(function(err){
-			if(err){return cb(err, null);}
-			
-			cb(null, 'Deleted');
-		});
+// This is a fake delete.  Instead we set "active" to false.
+module.exports = function(id, cb){
+	detail({user:id}, {active:false}, function(err, detail){
+		if(err){return cb(err, null);}
+		
+		cb(null, 'Deleted');
+	});
 };

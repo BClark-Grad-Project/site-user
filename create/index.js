@@ -21,6 +21,15 @@ module.exports = function(userObj, cb){
 	var profile = {id:userObj.id};
 
 	if(userObj.detail){
+		userObj.detail.user = userObj.id;
+	} 
+	if(userObj.contact){
+		for(var i = 0;i < userObj.contact; i++){
+			userObj.contact[i].user = userObj.id;			
+		}
+	}
+	
+	if(userObj.detail){
 		detail(userObj.detail, function(err, detail){
 			if(err){return cb(err, null);}
 			

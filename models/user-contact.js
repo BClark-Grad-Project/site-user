@@ -17,7 +17,6 @@ var UserContactSchema = mongo.Schema({
 UserContactSchema.methods.getData = function(){
 	return {
 		id:		  this._id,
-		user:	  this.user,
 	    type:     this.type,
 	    phone:    this.phone,
 	    carrier:  this.carrier,

@@ -1,0 +1,12 @@
+{
+  "name": "site-user",
+  "author": "Brandon L. Clark",
+  "description": "A user information package.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "mongoose": "~3.8.17"
+  }
+}
