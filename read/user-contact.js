@@ -2,7 +2,7 @@ var UserContact = require('./../models/user-contact');
 
 module.exports = function(userObj, cb){
 	UserContact
-		.find()
+		.find(userObj)
 		.exec(function(err, contact){
 			if(err){return cb(err, null);}
 			if(!contact){return cb('No Contact Id: ' + id, null);}
