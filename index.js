@@ -15,6 +15,7 @@ module.exports.get  = get;
 module.exports.post = post;
 
 module.exports.create = function(userObj, cb){
+	console.log('site-user', userObj);
   db.open();
   C(userObj, function(err, data){
     db.close();
@@ -25,6 +26,7 @@ module.exports.create = function(userObj, cb){
 };
 
 module.exports.read = function(id, cb){
+	console.log('site-user', id);
   db.open();
   R({user:id}, function(err, data){
     db.close();
@@ -35,6 +37,7 @@ module.exports.read = function(id, cb){
 };
 
 module.exports.update = function(userObj, cb){
+	console.log('site-user', userObj);
   db.open();
   U(userObj, function(err, data){
     db.close();
@@ -45,6 +48,7 @@ module.exports.update = function(userObj, cb){
 };
 
 module.exports.remove = function(id, cb){
+	console.log('site-user', id);
   db.open();
   D(id, function(err, data){
     db.close();
