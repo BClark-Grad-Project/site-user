@@ -24,7 +24,7 @@ module.exports = function(userObj, cb){
 		userObj.detail.user = userObj.id;
 	} 
 	if(userObj.contact){
-		for(var i = 0;i < userObj.contact; i++){
+		for(var i in userObj.contact){
 			userObj.contact[i].user = userObj.id;			
 		}
 	}
