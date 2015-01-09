@@ -1,6 +1,6 @@
 // Index of create
-var detail = require('./user-detail');
-var contact = require('./user-contact');
+var Detail = require('./user-detail');
+var Contact = require('./user-contact');
 
 var saveContacts = function(contactsObj, cb){
 	var contacts = [];
@@ -30,7 +30,7 @@ module.exports = function(userObj, cb){
 	}
 	
 	if(userObj.detail){
-		detail(userObj.detail, function(err, detail){
+		Detail(userObj.detail, function(err, detail){
 			if(err){return cb(err, null);}
 			
 			profile.detail  = detail;
