@@ -3,10 +3,13 @@ var UserContact = require('./../models/user-contact');
 module.exports = function(userObj, cb){
 	UserContact
 		.find(userObj)
-		.exec(function(err, contact){
+		.exec(function(err, contacts){
 			if(err){return cb(err, null);}
-			if(!contact){return cb('No Contact Id: ' + id, null);}
-
-			return cb(null, contact.getData());
+			if(!contacts){return cb('No Contact Id: ' + id, null);}
+			
+			for(var i in contacts){
+				contacts[i] = contacts[i].getData();
+			}
+			return cb(null, contacts);
 		});	
 };
