@@ -14,8 +14,8 @@ var saveContacts = function(contactsObj, cb){
 	}
 };
 
-module.exports.detail = detail;
-module.exports.contact = contact;
+module.exports.detail = Detail;
+module.exports.contact = Contact;
 
 module.exports = function(userObj, cb){
 	var profile = {id:userObj.id};
