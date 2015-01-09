@@ -21,7 +21,7 @@ module.exports = function(userObj, cb){
 	var profile = {id:userObj.id};
 	
 	if(userObj.detail){
-		detail({user:userObj.id}, userObj.detail, function(err, detail){
+		detail({_id:userObj.detail.id}, userObj.detail, function(err, detail){
 			if(err){return cb(err, null);}
 			
 			profile.detail = detail;
