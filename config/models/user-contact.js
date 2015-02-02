@@ -30,4 +30,4 @@ UserContactSchema.methods.getData = function(){
 	};
 };
 
-module.exports = mongo.model('UserContact', UserContactSchema);
+module.exports = UserContactSchema;

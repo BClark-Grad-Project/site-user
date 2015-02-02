@@ -1,4 +1,4 @@
-var UserDetail = require('./../models/user-detail');
+var UserDetail = require('./../config').detail;
 
 module.exports = function(detail, cb){
 	if(!detail.user){return cb('Missing User Object', null);}

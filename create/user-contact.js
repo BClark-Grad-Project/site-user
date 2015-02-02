@@ -1,4 +1,4 @@
-var UserContact = require('./../models/user-contact');
+var UserContact = require('./../config').contact;
 
 module.exports = function(contact, cb){
 	if(!contact.type){return cb('Missing Contact Type', null);}

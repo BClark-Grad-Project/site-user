@@ -1,4 +1,4 @@
-var UserContact = require('./../models/user-contact');
+var UserContact = require('./../config').contact;
 
 module.exports = function(userObj, cb){
 	UserContact
