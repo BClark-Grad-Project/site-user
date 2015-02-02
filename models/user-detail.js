@@ -9,7 +9,7 @@ var UserDetailSchema = mongo.Schema({
     last:         {type: String},
     birth:        {type:   Date},
     gender:       {type:   String},
-    joined:		  {type: Date, default: Date.now()}    
+    joined:		  {type: Date, default: Date.now}    
 });
 
 UserDetailSchema.methods.getData = function(){

@@ -1,8 +1,8 @@
 var UserDetail = require('./../models/user-detail');
 
-module.exports = function(id, updateData, cb){
+module.exports = function(search, updateData, cb){
 	
-	UserDetail.findOneAndUpdate(id, updateData, {}, function(err, detail){
+	UserDetail.findOneAndUpdate(search, updateData, {}, function(err, detail){
 		if(err){return cb(err, null);}
 		return cb(null, detail.getData());
 	});

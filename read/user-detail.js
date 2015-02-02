@@ -1,4 +1,3 @@
-
 var UserDetail = require('./../models/user-detail');
 
 module.exports = function(userObj, cb){
