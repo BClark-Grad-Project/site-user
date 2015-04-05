@@ -1,5 +1,15 @@
 var UserDetail = require('./../config').detail;
 
+//This parse a response to see why it could not be created
+var getErrorField = function(err){
+	var field = err.message.split('.$')[1];
+	
+	field = field.split(' dup key')[0];
+	field = field.substring(0, field.lastIndexOf('_')); 
+	
+	return field;
+};
+
 module.exports = function(detail, cb){
 	if(!detail.user){return cb('Missing User Object', null);}
 
@@ -19,7 +29,14 @@ module.exports = function(detail, cb){
 	
 	detailObj.save(function (err) {
         if (err){
-        	return cb(err, null);
+        	if(err.code == 11000 || err.code == 11001){
+        		var field = getErrorField(err);
+        		if(field == 'user'){
+        			return cb({type:'user_detail_exist'}, detail);
+        		} else {
+        			return cb(err, detail);
+        		}
+        	} else return cb(err, detail);
         }
         return cb(null, detailObj.getData());
     });

@@ -1,7 +1,7 @@
 var mongo = require('mongoose');
 
 var UserDetailSchema = mongo.Schema({
-    user:         {type:  mongo.Schema.Types.ObjectId},
+    user:         {type:  mongo.Schema.Types.ObjectId, unique:true},
     contact:     [{type:  mongo.Schema.Types.ObjectId,
                    ref:   'UserContact'}],
     first:        {type: String},

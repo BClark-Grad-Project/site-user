@@ -16,10 +16,15 @@ module.exports.post = post;
 
 module.exports.create = function(userObj, cb){
   console.log('site-user', userObj);
-  C(userObj, function(err, data){
-    if(err){return cb(err, null);}
-    
-    return cb(null, data);
+  R({user:userObj.id}, function(err, user){
+	  if(err){
+		  if(err.type){
+				C(userObj, function(err, data){
+					if(err) return cb(err, null);		    
+			    	else return cb(null, data);
+			  	});
+		  } else return cb(err, null);
+	  } else return cb(null, user);
   });
 };
 

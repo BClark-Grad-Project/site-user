@@ -5,7 +5,7 @@ module.exports = function(userObj, cb){
 		.findOne(userObj)
 		.exec(function(err, detail){
 			if(err){return cb(err, null);}
-			if(!detail){return cb('!No Detail', null);}
+			if(!detail){return cb({type:'!Not Found: User Detail'}, null);}
 
 			return cb(null, detail.getData());
 		});	
